@@ -48,10 +48,13 @@ public class IntStackImplTest {
 
     @Test
     public void testManyPushes() {
-        IntStack stack = new IntStackImpl();
+        IntStack stack = new IntStackImpl(16);
 
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
             stack.push(i);
         }
+
+        assertFalse(stack.isEmpty());
+        assertEquals(99, stack.peek());
     }
 }
